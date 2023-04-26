@@ -3,6 +3,7 @@ import log from '../logger/index';
 import { RowDataPacket } from 'mysql2';
 import pool from '../models/userModel';
 import bcrypt from 'bcrypt';
+  const mkcert = require('mkcert');
 const saltRounds = 10;
 import dotenv from 'dotenv';
 dotenv.config();
@@ -70,6 +71,7 @@ export const verifyUser: RequestHandler = async (req: Request, res: Response, ne
   // foundUser structure: [[RowDataPackets], [metadata]]
   const foundUser = (await findUser(req.body.email)) as RowDataPacket[][];
   // verify user exists in db
+  console.log(foundUser)
   if (!foundUser[0][0]) {
     log.error('Email address not found');
     return res.status(403).json({ err: 'Email address not found' });
@@ -80,6 +82,7 @@ export const verifyUser: RequestHandler = async (req: Request, res: Response, ne
   if (match) {
     log.info('Username/Password confirmed');
     res.locals.user = foundUser[0][0];
+    console.log(res.locals.user);
     return res.status(200).json(res.locals.user);
   } else {
     log.error('Incorrect password');
@@ -90,12 +93,15 @@ export const verifyUser: RequestHandler = async (req: Request, res: Response, ne
 // Save currentSchema into database
 export const saveSchema: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
   log.info(`Saving user's schema (middleware)`);
+
+
   if (typeof req.body.email !== 'string' || typeof req.body.schema !== 'string')
     return next({
       log: 'Error in user.controller.userRegistration',
       status: 400,
       message: 'err: User data must be strings',
     });
+
   const updateColQuery: string = `UPDATE users SET pg_schema = '${req.body.schema}' WHERE email = '${req.body.email}';`;
   pool
     .query(updateColQuery)
