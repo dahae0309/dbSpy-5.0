@@ -99,7 +99,7 @@ export default function DataTableNode({ data }) {  //this 'data' is created and 
          id={data.edges[i].sourceHandle}
          style={{
            background: 'transparent',
-           left: "5%"
+           left: "60%"
          }}
        />
      );
@@ -117,7 +117,7 @@ export default function DataTableNode({ data }) {  //this 'data' is created and 
          id={data.edges[i].targetHandle}
          style={{
            background: 'transparent',
-           left: "80%"
+           left: "5%"  //need to fix this for dynamic handles
          }}
        />
      );
@@ -128,26 +128,30 @@ export default function DataTableNode({ data }) {  //this 'data' is created and 
  return (
 <>
   <div className="table-node transition-colors duration-500" key={tableName}>
-  <div className="flex items-center justify-between table-header bg-[#075985] dark:opacity-75">
+  <div className="flex items-center justify-between table-header relative bg-[#075985] dark:opacity-75">
   {/* <NodeResizer minWidth={100} minHeight={30} /> */}
   {tableHandles}
   <div>
-    <label htmlFor="text" className="bg-[#075985] dark:opacity-75">
+    <label htmlFor="text" 
+    className="bg-[#075985] dark:opacity-75 text-white text-stroke-black dark:bg-opacity-0" 
+    style={{ 
+      'margin-left': '0px'
+       }}>
       {tableName}
     </label>
   </div>
     <div className="addRowBtn ml-3 mb-1.5">
       <button
         className="add-field transition-colors duration-500 hover:text-[#618fa7] dark:text-[#fbf3de] dark:hover:text-[#618fa7] bg-transparent"
-        // onClick={() => setInputModalState(true, 'column', tableName)}
+        onClick={() => setInputModalState(true, 'row', tableName)}
       >
         <FaRegPlusSquare size={20} className="text-white" />
       </button>
     </div>
 </div>
   <div
-    style={{overflow: "auto", maxHeight: "350px", maxWidth: "600px" }}
-    className="nowheel"
+    style={{ maxHeight: "350px", maxWidth: "600px" }}
+    className="nowheel overflow-auto scrollbar-hide"
   >
     <div className="table-bg transition-colors duration-500 dark:bg-slate-700">
       <table className="transition-colors duration-500 dark:text-[#fbf3de]">

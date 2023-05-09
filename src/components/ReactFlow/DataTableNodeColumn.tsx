@@ -112,7 +112,10 @@ return (
               className="transition-colors duration-500 hover:text-[#618fa7] dark:text-[#fbf3de] dark:hover:text-[#618fa7]">
                 <FaRegSave size={17} />
               </button>):
-            (<button val={`${id}-rowCheckBtn`} onClick={() =>{ deleteRow(rowData,index,id)}}className="transition-colors duration-500 hover:text-[#618fa7] dark:text-[#fbf3de] dark:hover:text-[#618fa7]">
+            (<button val={`${id}-rowCheckBtn`} onClick={() =>{
+              deleteRow(rowData,index,id);
+              setMode('default');
+            }}className="transition-colors duration-500 hover:text-[#618fa7] dark:text-[#fbf3de] dark:hover:text-[#618fa7]">
               <FaRegCheckSquare size={17} />
             </button>)
       }
