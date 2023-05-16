@@ -36,13 +36,13 @@ export default function TableNodeColumn({
     setColumnData({...newColumn})
   },[column])
 
-  useEffect(() => {
-    if (checked === false) {
-      setChecked(true)
-    } else {
-      setChecked(false)
-    };
-  },[checked]);
+  // useEffect(() => {
+  //   if (checked === false) {
+  //     setChecked(true)
+  //   } else {
+  //     setChecked(false)
+  //   };
+  // },[checked]);
 
 
   const onSave = () => {

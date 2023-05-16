@@ -187,17 +187,18 @@ const profileList: profileInfo[] = [
     title: 'Software Engineer',
     linkedInUrl: '',
     githubUrl: '',
-  },
+  }
 ];
 
 export default function Contributors() {
   const profiles = [];
   profileList.reverse(); // Recent contributors first
-  let i = 0;
-  for (const prof of profileList) {
-    profiles.push(<Profile props={prof} key={`contributor${i}`} />);
-    i += 1;
-  }
+  // let i = 0;
+  // for (const prof of profileList) {
+  //   profiles.push(<Profile props={prof} key={`contributor${i}`} />);
+  //   i += 1;
+  // }
+  profileList.forEach((profile, i) => profiles.push(<Profile props={profile} key={`contributor${i}`} />))
 
   return (
     <div className="contributors container my-24 mx-auto px-6">
