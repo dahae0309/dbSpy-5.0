@@ -45,9 +45,11 @@
 
 2. **ER Diagram Visuals:** Visualize the entity relationship diagram of a database with dynamic handle placement
 
-3. **Table Relationship Visuals** Relationships of individual tables are easily identified when clicking on a table.
+3. **Table Relationship Visuals** Relationships of individual tables are easily identified when clicking on a table
 
-4. **Schema Modification:** Easily modify a database's schema through a simple UI
+4. **Schema Modification:** Toggle between Schema and Data easily with a click of a button
+
+5. **Data/Schema Modification:** Easily modify a database's schema or data through a simple UI 
 
 5. **Guided Database Building:** Create a new database from scratch using entity relationship diagrams to ensure the integrity of the database
 
@@ -55,13 +57,14 @@
 
 7. **Query Generator:** Query generator generates executable SQL queries
 
-8. **User Sessions:** Sign up/Log in securely with either Google OAuth or JWTs/Bcrypt
+8. **User Sessions:** Sign up/Log in securely with either Google/Github OAuth or JWTs/Bcrypt
 
-9. **Save/Load:** Store and reload recent database sessions through your user account *-CURRENTLY UNDER UPDATE*
+9. **Save/Load:** Store and reload past database sessions through your user account *-CURRENTLY UNDER UPDATE*
 
 10. **Dark Mode:** Visual settings to provide a more comfortable viewing experience in low-light environements
 
 ## <img src="images/Darkmode.png">
+
 
 ### Getting started
 
@@ -92,6 +95,15 @@ PG_TEST_PW = <password string from PG_TEST_URL>
 ## test user with saved schema to test save/load functionality
 TEST_USER_EMAIL = <email string>
 TEST_USER_PW = <password string>
+
+GOOGLE_OAUTH_CLIENT_ID = <Google Oauth client id>
+GOOGLE_OAUTH_CLIENT_SECRET= <Google Oauth client id>
+GOOGLE_OAUTH_REDIRECT_URI = 'http://localhost:8080/display'
+
+GITHUB_OAUTH_CLIENT_ID = <Github Oauth client id>
+GITHUB_OAUTH_CLIENT_SECRET= <Github Oauth client id>
+GITHUB_OAUTH_REDIRECT_URI = 'http://localhost:8080/display'
+
 ```
 
 - Run the following below:
@@ -146,13 +158,14 @@ mkcert --version
 npm run cert:linux
 ```
 
+
+
+
 ---
 
 # How to Use
 
 ### Connecting to an existing database
-
-<img src="images/Existing%20Databse.png">
 
 1. Click on the "Connect Database" button under the Action section on the left side of the page. This will open a sidebar on the right side of the page.
 2. Select the database type from the dropdown.
@@ -160,7 +173,11 @@ npm run cert:linux
 4. Once the connection to your database is established, the canvas will render and generate the tables and their relationships.
     * OracleSQL requires the download of the OCI - [here](https://www.oracle.com/cloud/free/)
 
-<img src="images/withDataButton.png">
+
+
+## <img src="images/LandingPageDemo.gif">
+
+
 
 ### Uploading your database's SQL file
 
@@ -183,6 +200,7 @@ npm run cert:linux
    <img src="images/Create%20tables.png">
    <img src="images/addRow.png">
 
+
 ### Editing an existing row of a DATA table
 
 1. Click on the edit icon of the specific column that you want to edit.
@@ -195,6 +213,10 @@ npm run cert:linux
 1. Click on the delete icon of the specific column that you want to delete.
 2. Click on the confirm icon to delete the column.
 3. Click on the cancel icon to cancel the deletion.
+
+
+## <img src="images/MakingEditsDemo.gif">
+
 
 ### Adding a foreign key reference to a column
 
