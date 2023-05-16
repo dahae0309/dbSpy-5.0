@@ -192,7 +192,7 @@ const profileList: profileInfo[] = [
 ];
 
 export default function Contributors() {
-  const profiles = [];
+  const profiles: JSX.Element[]= [];
   profileList.reverse(); // Recent contributors first
   // let i = 0;
   // for (const prof of profileList) {
