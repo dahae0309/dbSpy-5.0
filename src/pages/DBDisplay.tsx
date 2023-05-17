@@ -53,7 +53,7 @@ const DBDisplay: React.FC = () => {
 
 useEffect(() :void => {
 
-
+  console.log('HELLLLOOOO');
   const windowUrl = window.location.search;
   const urlParams = new URLSearchParams(windowUrl);
   const code = urlParams.get('code');
@@ -75,7 +75,6 @@ useEffect(() :void => {
         return data.json();
       })
       .then((res) => {
-        console.log(res);
         setUser(res);
 
       })

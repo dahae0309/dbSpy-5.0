@@ -51,9 +51,7 @@ type Options = {
 
 
 function getGoogle():void{
-
   const rootUrl:string = 'https://accounts.google.com/o/oauth2/v2/auth';
-
   const options:Options = {
     redirect_uri: 'http://localhost:3000/display',
     client_id: '507124943654-nd7fhcdfvmendo2ntsrpj0pifg7paa36.apps.googleusercontent.com',
@@ -67,6 +65,8 @@ function getGoogle():void{
   };
   const qs = new URLSearchParams(options);
   const url = `${rootUrl}?${qs.toString()}`;
+  console.log(qs.toString())
+  console.log(url)
 
   const strWindowFeatures =
     'toolbar=no, menubar=no, width=600, height=700, top=100, left=800';
@@ -89,7 +89,6 @@ const getGithub = ():void => {
   }
   const qs = new URLSearchParams(options);
   const url = `${rootUrl}?${qs.toString()}`;
-  console.log(url);
   
   const strWindowFeatures = 'toolbar=no, menu=no, width=600, height=700, top=100, left=800';
   window.open(url,'_self', strWindowFeatures);

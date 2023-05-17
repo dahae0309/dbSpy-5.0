@@ -36,7 +36,6 @@ type Options = {
 
     const qs = new URLSearchParams(options);
     const TokenUrl = `${rootUrl}?${qs.toString()}`;
-    console.log(TokenUrl);
     fetch(TokenUrl,{
         method:'POST',
         headers: {
