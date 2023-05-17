@@ -53,7 +53,7 @@ type Options = {
 function getGoogle():void{
   const rootUrl:string = 'https://accounts.google.com/o/oauth2/v2/auth';
   const options:Options = {
-    redirect_uri: 'http://localhost:3000/display',
+    redirect_uri: import.meta.env.VITE_GOOGLE_OAUTH_REDIRECT_URI,
     client_id: '507124943654-nd7fhcdfvmendo2ntsrpj0pifg7paa36.apps.googleusercontent.com',
     access_type: 'offline',
     response_type: 'code',
@@ -78,7 +78,7 @@ function getGoogle():void{
 const getGithub = ():void => {
   const rootUrl: string = 'https://github.com/login/oauth/authorize';
   const options: Options = {
-    redirect_uri: 'http://localhost:3000/display',
+    redirect_uri: import.meta.env.VITE_GITHUB_OAUTH_REDIRECT_URI,
     client_id: 'd44f1421ff7324a4468d',
     state: 'randomstring',
     allow_signup: 'true',
