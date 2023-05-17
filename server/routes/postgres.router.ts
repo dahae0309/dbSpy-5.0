@@ -6,7 +6,7 @@ const postgresRouter = Router();
 
 // Retrieve Postgres schema and data from REMOTE db
 postgresRouter.get('/schema', postgresController.postgresQuery, (_req: Request, res: Response) => {
-  //console.log('Returned to the postgres router with data');
+  console.log('Returned to the postgres router with data');
   return res.status(200).json(res.locals);
 });
 

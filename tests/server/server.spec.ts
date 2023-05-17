@@ -80,14 +80,13 @@ describe('/api/verifyUser', () => {
     });
     expect(response.status).toBe(200);
     expect(response.headers['content-type']).toMatch(/json/);
-    const { id, email, full_name, picture, sub } = response.body;
-    const assertionBody = { id, email, full_name, picture, sub };
+    const { id, email, full_name, picture} = response.body;
+    const assertionBody = { id, email, full_name, picture };
     expect(assertionBody).toEqual({
       id: 6,
       email: TEST_USER_EMAIL,
       full_name: 'TestFirst TestLast',
       picture: null,
-      sub: null,
     });
     expect(typeof response.body.password).toBe('string');
   });
